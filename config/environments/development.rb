@@ -55,4 +55,10 @@ Rails.application.configure do
   # Use an evented file watcher to asynchronously detect changes in source code,
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
+
+  # These should be in a secrets yaml or env vars.
+  config.x.oidc_client_id = 'samlproxy'
+  config.x.oidc_client_secret = 'foobar'
+  config.x.oidc_host = 'signin-dev-oidc-as.azurewebsites.net'
+  config.x.base_url = 'http://localhost:3000'
 end

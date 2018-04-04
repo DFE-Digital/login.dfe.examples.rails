@@ -1,4 +1,7 @@
 class TodosController < ApplicationController
+  include Authentication
+
+  before_action :require_auth!, except: [:homepage, :auth_callback]
   before_action :set_todo, only: [:show, :edit, :update, :destroy]
 
   def homepage
