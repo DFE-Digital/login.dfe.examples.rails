@@ -10,7 +10,7 @@
 
   <body>
     <%if !@current_user.nil? %>
-      <h1>Welcome, <%= @current_user['email'] -%></h1>
+      <h1>Welcome, <%= @current_user['given_name'] -%> <%= @current_user['family_name'] -%> (<%=@current_user['email']-%>)</h1>
       <br />
     <% end %>
     <%= yield %>
