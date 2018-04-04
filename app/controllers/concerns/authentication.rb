@@ -33,6 +33,7 @@ module Authentication
     client.authorization_code = params[:code]
     access_token = client.access_token!
     userinfo = access_token.userinfo!
+    session[:id_token] = access_token.id_token # store this for logout flows.
     session[:current_user] = userinfo
     redirect_to session[:return_url]
   end

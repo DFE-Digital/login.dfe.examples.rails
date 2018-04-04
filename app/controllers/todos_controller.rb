@@ -3,7 +3,7 @@ class TodosController < ApplicationController
 
   before_action :require_auth!, except: [:homepage, :auth_callback]
   before_action :set_todo, only: [:show, :edit, :update, :destroy]
-
+  before_action :get_current_user, except: [:homepage, :auth_callback]
   def homepage
 
   end
@@ -73,6 +73,10 @@ class TodosController < ApplicationController
     def set_todo
       @todo = Todo.find(params[:id])
     end
+
+  def get_current_user
+    current_user
+  end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def todo_params

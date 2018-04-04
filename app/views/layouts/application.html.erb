@@ -9,6 +9,10 @@
   </head>
 
   <body>
+    <%if !@current_user.nil? %>
+      <h1>Welcome, <%= @current_user['email'] -%></h1>
+      <br />
+    <% end %>
     <%= yield %>
   </body>
 </html>
